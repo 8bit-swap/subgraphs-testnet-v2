@@ -1,5 +1,5 @@
 specVersion: 0.0.2
-description: 8Bit-Swap is a decentralized protocol for automated token exchange on June Chain.
+description: 8-BitSwap is a decentralized protocol for automated token exchange on June Chain.
 repository: https://github.com/8bit-swap/subgraphs-testnet-v2
 schema:
   file: ./schema.graphql
@@ -8,9 +8,9 @@ dataSources:
     name: Factory
     network: june
     source:
-      address: '0x0D5eCAacDfD2BA156d2a70e31A3A9586fF6868c9'
+      address: '0xcF378A5332e6B6A08D8E71BbDEc95B002b65588D'
       abi: Factory
-      startBlock: 1722172
+      startBlock: 2460686
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
