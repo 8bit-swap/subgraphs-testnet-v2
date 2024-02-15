@@ -1,7 +1,7 @@
-# 8Bit-Swap V2 Subgraph
+# 8-BitSwap V2 Testnet Subgraph
 Forked from [uniswap-v2-subgraphs](https://github.com/Uniswap/v2-subgraph)
 
-[8Bit-Swap](https://8bit-swap.io/) is a decentralized protocol for automated token exchange on June Chain.
+[8Bit-Swap](https://testnet.8-bitswap.io/) is a decentralized protocol for automated token exchange on Socotra Chain.
 
 This subgraph dynamically tracks any pair created by the uniswap factory. It tracks of the current state of Uniswap contracts, and contains derived stats for things like historical data and USD prices.
 
@@ -10,6 +10,9 @@ This subgraph dynamically tracks any pair created by the uniswap factory. It tra
 - data on transactions
 - data on liquidity providers
 - historical data on Uniswap, pairs or tokens, aggregated by day
+- 
+## Deployed subgraph
+- https://subgraph.mcnstream.io/subgraphs/name/8bitSwap
 
 ## Running Locally
 
