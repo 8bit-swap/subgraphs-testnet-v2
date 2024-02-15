@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: june
+    network: socotra
     source:
       address: '0xcF378A5332e6B6A08D8E71BbDEc95B002b65588D'
       abi: Factory
@@ -34,7 +34,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: june
+    network: socotra
     source:
       abi: Pair
     mapping:
