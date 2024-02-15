@@ -6,9 +6,9 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "create-local": "graph create <github_name/subgraph_name> --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy <github_name/subgraph_name> --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy <github_name/subgraph_name> --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
+    "create-local": "graph create --node http://192.168.10.10:8020/ 8bitSwap",
+    "deploy-local": "graph deploy --node http://127.0.0.1:8020/ --ipfs http://192.168.10.15:5001 8bitSwap",
+    "remove-local": "graph remove --node http://127.0.0.1:8020/ 8bitSwap",
     "deploy-staging": "graph deploy <github_name/subgraph_name> --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
     "watch-local": "graph deploy <github_name/subgraph_name> --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
   },
