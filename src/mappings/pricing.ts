@@ -3,8 +3,8 @@ import { Pair, Token, Bundle } from '../types/schema'
 import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts/index'
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from './helpers'
 
-const WETH_ADDRESS = '0xDce22197228e8Ae74bC9D07539A29Ea9F6DE372a'
-const USDT_WETH_PAIR = '0x5C937e48519c85Bd240E056DF84f3F98df4AfD18' // created block 2460892
+const WETH_ADDRESS = '0xdce22197228e8ae74bc9d07539a29ea9f6de372a'
+const USDT_WETH_PAIR = '0x5c937e48519c85bd240e056df84f3f98df4afd18' // created block 2460892
 
 export function getEthPriceInUSD(): BigDecimal {
   // fetch eth prices for each stablecoin
