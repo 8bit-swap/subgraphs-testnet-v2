@@ -3,7 +3,7 @@ description: 8-BitSwap is a decentralized protocol for automated token exchange 
 repository: https://github.com/8bit-swap/subgraphs-testnet-v2
 schema:
   file: ./schema.graphql
-  features:
+features:
   - grafting
 graft:
   base: QmQg6gFkH7Q2CkQ52q8YQxpgAr2PBuPzRuKh1kDynAJjxz
