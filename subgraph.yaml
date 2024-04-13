@@ -3,19 +3,14 @@ description: 8-BitSwap is a decentralized protocol for automated token exchange 
 repository: https://github.com/8bit-swap/subgraphs-testnet-v2
 schema:
   file: ./schema.graphql
-features:
-  - grafting
-graft:
-  base: QmQg6gFkH7Q2CkQ52q8YQxpgAr2PBuPzRuKh1kDynAJjxz
-  block: 2460891
 dataSources:
   - kind: ethereum/contract
     name: Factory
     network: socotra
     source:
-      address: '0xcF378A5332e6B6A08D8E71BbDEc95B002b65588D'
+      address: '0xD1E879Df1B58c02fc39c76a2A5bF5196b3122189'
       abi: Factory
-      startBlock: 2460686
+      startBlock: 133402
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
