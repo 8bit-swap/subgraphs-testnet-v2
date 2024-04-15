@@ -8,9 +8,9 @@ dataSources:
     name: Factory
     network: socotra
     source:
-      address: '0x607EF664b1072f77834Ffe9446bf059fB264E8b9'
+      address: '0xE93939fd77E0707501D998dDE4A388f7D9580Da2'
       abi: Factory
-      startBlock: 210424
+      startBlock: 214565
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
