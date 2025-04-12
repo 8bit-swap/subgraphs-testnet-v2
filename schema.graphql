@@ -131,6 +131,10 @@ type Transaction @entity {
   id: ID! # txn hash
   blockNumber: BigInt!
   timestamp: BigInt!
+
+  reserve0: BigDecimal #From Sync event (useful for historical data)
+  reserve1: BigDecimal #From Sync event (useful for historical data)
+  
   # This is not the reverse of Mint.transaction; it is only used to
   # track incomplete mints (similar for burns and swaps)
   mints: [Mint]!

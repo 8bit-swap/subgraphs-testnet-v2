@@ -215,6 +215,7 @@ export function handleSync(event: Sync): void {
   let token0 = Token.load(pair.token0)
   let token1 = Token.load(pair.token1)
   let uniswap = UniswapFactory.load(FACTORY_ADDRESS)
+  let transaction = Transaction.load(event.transaction.hash.toHexString())
 
   // reset factory liquidity by subtracting onluy tarcked liquidity
   uniswap.totalLiquidityETH = uniswap.totalLiquidityETH.minus(pair.trackedReserveETH as BigDecimal)
@@ -223,8 +224,17 @@ export function handleSync(event: Sync): void {
   token0.totalLiquidity = token0.totalLiquidity.minus(pair.reserve0)
   token1.totalLiquidity = token1.totalLiquidity.minus(pair.reserve1)
 
-  pair.reserve0 = convertTokenToDecimal(event.params.reserve0, token0.decimals)
-  pair.reserve1 = convertTokenToDecimal(event.params.reserve1, token1.decimals)
+  let reserve0 = convertTokenToDecimal(event.params.reserve0, token0.decimals)
+  let reserve1 = convertTokenToDecimal(event.params.reserve1, token1.decimals)
+
+  pair.reserve0 = reserve0
+  pair.reserve1 = reserve1
+
+  if (transaction) {
+    transaction.reserve0 = reserve0
+    transaction.reserve1 = reserve1
+    transaction.save()
+  }
 
   if (pair.reserve1.notEqual(ZERO_BD)) pair.token0Price = pair.reserve0.div(pair.reserve1)
   else pair.token0Price = ZERO_BD
