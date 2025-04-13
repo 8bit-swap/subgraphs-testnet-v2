@@ -237,9 +237,12 @@ export function handleSync(event: Sync): void {
 
   pair.save()
 
-  transaction.reserve0 = reserve0
-  transaction.reserve1 = reserve1
-  transaction.save()
+  // If transaction is already created (in swap event), override the reserve values
+  if (transaction) {
+    transaction.reserve0 = reserve0
+    transaction.reserve1 = reserve1
+    transaction.save()
+  }
 
   // update ETH price now that reserves could have changed
   let bundle = Bundle.load('1')
@@ -473,6 +476,8 @@ export function handleSwap(event: Swap): void {
     transaction = new Transaction(event.transaction.hash.toHexString())
     transaction.blockNumber = event.block.number
     transaction.timestamp = event.block.timestamp
+    transaction.reserve0 = pair.reserve0
+    transaction.reserve1 = pair.reserve1
     transaction.mints = []
     transaction.swaps = []
     transaction.burns = []
