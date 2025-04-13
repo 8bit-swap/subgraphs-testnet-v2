@@ -215,7 +215,6 @@ export function handleSync(event: Sync): void {
   let token0 = Token.load(pair.token0)
   let token1 = Token.load(pair.token1)
   let uniswap = UniswapFactory.load(FACTORY_ADDRESS)
-  let transaction = Transaction.load(event.transaction.hash.toHexString())
 
   // reset factory liquidity by subtracting only tracker liquidity
   uniswap.totalLiquidityETH = uniswap.totalLiquidityETH.minus(pair.trackedReserveETH as BigDecimal)
@@ -224,11 +223,8 @@ export function handleSync(event: Sync): void {
   token0.totalLiquidity = token0.totalLiquidity.minus(pair.reserve0)
   token1.totalLiquidity = token1.totalLiquidity.minus(pair.reserve1)
 
-  let reserve0 = convertTokenToDecimal(event.params.reserve0, token0.decimals)
-  let reserve1 = convertTokenToDecimal(event.params.reserve1, token1.decimals)
-
-  pair.reserve0 = reserve0
-  pair.reserve1 = reserve1
+  pair.reserve0 = convertTokenToDecimal(event.params.reserve0, token0.decimals)
+  pair.reserve1= convertTokenToDecimal(event.params.reserve1, token1.decimals)
 
   if (pair.reserve1.notEqual(ZERO_BD)) pair.token0Price = pair.reserve0.div(pair.reserve1)
   else pair.token0Price = ZERO_BD
@@ -236,14 +232,7 @@ export function handleSync(event: Sync): void {
   else pair.token1Price = ZERO_BD
 
   pair.save()
-
-  // If transaction is already created (in swap event), override the reserve values
-  if (transaction) {
-    transaction.reserve0 = reserve0
-    transaction.reserve1 = reserve1
-    transaction.save()
-  }
-
+  
   // update ETH price now that reserves could have changed
   let bundle = Bundle.load('1')
   bundle.ethPrice = getEthPriceInUSD()
@@ -476,8 +465,6 @@ export function handleSwap(event: Swap): void {
     transaction = new Transaction(event.transaction.hash.toHexString())
     transaction.blockNumber = event.block.number
     transaction.timestamp = event.block.timestamp
-    transaction.reserve0 = pair.reserve0
-    transaction.reserve1 = pair.reserve1
     transaction.mints = []
     transaction.swaps = []
     transaction.burns = []
@@ -500,6 +487,8 @@ export function handleSwap(event: Swap): void {
   swap.amount1In = amount1In
   swap.amount0Out = amount0Out
   swap.amount1Out = amount1Out
+  swap.reserve0 = pair.reserve0
+  swap.reserve1 = pair.reserve1
   swap.to = event.params.to
   swap.from = event.transaction.from
   swap.logIndex = event.logIndex
