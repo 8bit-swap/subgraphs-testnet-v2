@@ -11,7 +11,7 @@ export function getEthPriceInUSD(): BigDecimal {
 
   let usdtPair = Pair.load(USDT_WETH_PAIR) // usdt is token1
 
- if (usdtPair !== null) {
+  if (usdtPair !== null) {
     return usdtPair.token0Price
   } else {
     return ZERO_BD
@@ -21,7 +21,10 @@ export function getEthPriceInUSD(): BigDecimal {
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
   WETH_ADDRESS, // WETH
- '0x2d00000000000000000000000000000000000000', // USDT
+  '0x2d00000000000000000000000000000000000000', // USDT
+  '0x2e00000000000000000000000000000000000000', // USDC
+  '0x2f00000000000000000000000000000000000000', // DAI
+  '0x3000000000000000000000000000000000000000', // EUR
 ]
 
 // minimum liquidity required to count towards tracked volume for pairs with small # of Lps
