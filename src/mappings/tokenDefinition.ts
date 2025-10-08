@@ -20,16 +20,106 @@ export class TokenDefinition {
 
   // Get all tokens with a static defintion
   static getStaticDefinitions(): Array<TokenDefinition> {
-    let staticDefinitions = new Array<TokenDefinition>(6)
+    let staticDefinitions = new Array<TokenDefinition>(11)
 
-    /* Add DGD
-    let tokenDGD = new TokenDefinition(
-      Address.fromString('0xe0b7927c4af23765cb51314a0e0521a9645f0e2a'),
-      'DGD',
-      'DGD',
+    // Bitcoin Cash
+    let tokenBCH = new TokenDefinition(
+      Address.fromString('0x3600000000000000000000000000000000000000'),
+      'BCH',
+      'Bitcoin Cash',
       BigInt.fromI32(9)
     )
-    staticDefinitions.push(tokenDGD) */
+    staticDefinitions.push(tokenBCH)
+
+    // Dai
+    let tokenDAI = new TokenDefinition(
+      Address.fromString('0x2f00000000000000000000000000000000000000'),
+      'DAI',
+      'Dai',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenDAI)
+
+    // Dogecoin
+    let tokenDOGE = new TokenDefinition(
+      Address.fromString('0x3400000000000000000000000000000000000000'),
+      'DOGE',
+      'Dogecoin',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenDOGE)
+
+    // EUR1
+    let tokenEUR1 = new TokenDefinition(
+      Address.fromString('0x3000000000000000000000000000000000000000'),
+      'EUR1',
+      'EUR1',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenEUR1)
+
+    // Gold1
+    let tokenGLD1 = new TokenDefinition(
+      Address.fromString('0x3200000000000000000000000000000000000000'),
+      'GLD1',
+      'Gold1',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenGLD1)
+
+    // Chainlink
+    let tokenLINK = new TokenDefinition(
+      Address.fromString('0x3700000000000000000000000000000000000000'),
+      'LINK',
+      'Chainlink',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenLINK)
+
+    // Litecoin
+    let tokenLTC = new TokenDefinition(
+      Address.fromString('0x3500000000000000000000000000000000000000'),
+      'LTC',
+      'Litecoin',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenLTC)
+
+    // Mili Bitcoin
+    let tokenmBTC = new TokenDefinition(
+      Address.fromString('0x3300000000000000000000000000000000000000'),
+      'mBTC',
+      'Mili Bitcoin',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenmBTC)
+
+    // SGD1
+    let tokenSGD1 = new TokenDefinition(
+      Address.fromString('0x3100000000000000000000000000000000000000'),
+      'SGD1',
+      'SGD1',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenSGD1)
+
+    // Tether USDt
+    let tokenUSDT = new TokenDefinition(
+      Address.fromString('0x2d00000000000000000000000000000000000000'),
+      'USDT',
+      'Tether USDt',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenUSDT)
+
+    // USD1
+    let tokenvUSD1 = new TokenDefinition(
+      Address.fromString('0x2e00000000000000000000000000000000000000'),
+      'vUSD1',
+      'vUSD1',
+      BigInt.fromI32(9)
+    )
+    staticDefinitions.push(tokenvUSD1)
 
     return staticDefinitions
   }
